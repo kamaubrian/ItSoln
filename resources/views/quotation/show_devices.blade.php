@@ -32,12 +32,15 @@
                                         {{$value->model}}
                                     </td>
                                     <td>
+                                        <a href="">
                                         {{$value->serial}}
+                                        </a>
+
                                     </td>
                                     <td>
                                         {{$value->voltage}}
                                     </td>
-                                    <td>$value->fault</td>
+                                    <td>{{$value->fault}}</td>
                                 </tr>
                                 @endforeach
 

@@ -17,11 +17,11 @@
                     <p>
                         <a href="{{url('/test_device')}}">1. Setup Device Information</a>
                     </p>
-                        @if(Auth::user()->is_technician!==0)
+
                     <p>
-                        <a href="{{'/'}}">2. See Devices</a>
+                        <a href="{{'/my_devices'}}">2. See Devices</a>
                     </p>
-                       @endif
+
                 </div>
             </div>
         </div>
