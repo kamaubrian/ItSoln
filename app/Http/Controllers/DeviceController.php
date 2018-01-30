@@ -13,7 +13,7 @@ class DeviceController extends Controller
        $this->middleware('auth');
    }
 
-   public function store(Request $request){
+   public  function store(Request $request){
        $this->validate($request,[
            'machine_type'=>'required',
            'model'=>'required',
@@ -32,8 +32,12 @@ class DeviceController extends Controller
            'fault' => $request->input('fault'),
            'model'=>$request->input('model'),
        ]);
-       $device->save();
-       return redirect()->back()->with("Status","Device Information has been saved");
+       if($device->save()===true){
+           return redirect()->back()->with("status","Device Information has been saved");
+
+       }else{
+           return redirect()->back()->with("status","Error Encountered");
+       }
    }
 
 
@@ -46,6 +50,12 @@ class DeviceController extends Controller
        $electronics = electronics::where('user_id',Auth::user()->id)->paginate(10);
        return view('quotation.show_devices',compact('electronics'));
 
+   }
+
+   public function getClient($serial_no){
+       $electronics = electronics::where('serial',$serial_no)->firstOrFail();
+
+       return view('');
    }
 
 

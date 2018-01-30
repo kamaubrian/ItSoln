@@ -25,4 +25,10 @@ Route::get('/test_device','DeviceController@getDeviceInformation');
 Route::post('/test','DeviceController@store');
 Route::get('/my_devices','DeviceController@getClientDevices');
 
+Route::get('/admin',function(){
+
+    return view('technician.admin');
+});
+
+
 

@@ -20,6 +20,7 @@
                                 <th>Serial</th>
                                 <th>Voltage</th>
                                 <th>Fault</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,20 +33,34 @@
                                         {{$value->model}}
                                     </td>
                                     <td>
+                                        @if($value->status==='pending')
+                                            <span>{{$value->serial}}</span>
+                                        @else
                                         <a href="">
                                         {{$value->serial}}
                                         </a>
+                                            @endif
 
                                     </td>
                                     <td>
                                         {{$value->voltage}}
                                     </td>
                                     <td>{{$value->fault}}</td>
+                                    <td>
+
+                                        @if($value->status ==='pending')
+                                            <span class="label label-danger">{{$value->status}}</span>
+                                        @else
+                                            <span class="label label-success">{{$value->status}}</span>
+                                        @endif
+
+                                    </td>
                                 </tr>
                                 @endforeach
 
                         </tbody>
                     </table>
+                        {{$electronics->render()}}
                         @endif
                 </div>
             </div>

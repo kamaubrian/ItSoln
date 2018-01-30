@@ -21,3 +21,44 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\electronics::class,function(Faker\Generator $faker){
+        $machine_type = array(
+          'Projector',
+            'Laptop',
+            'Phone',
+            'Desktop',
+            'Television'
+        );
+        $model = array(
+          'HP',
+            'Lenovo',
+            'Yamaha',
+            'Dell',
+            'Samsung',
+            'Nokia',
+        );
+        $voltage = $faker->randomElement($array = array('125','136','145','175','475','252')).$faker->randomElement($array = array(
+            'KW','W','V' ,'KJ',
+            ));
+
+        $fault = array(
+          'Battery',
+          'HardDrive',
+          'Lenses',
+          'RAM'
+        );
+        $serial = str_random(12);
+        $status =$faker ->randomElement($array = array('Approved','Pending'));
+
+        return [
+            'machine_type' => $faker->randomElement($machine_type),
+            'model' => $faker->randomElement($model),
+            'serial' => $serial,
+            'voltage' => $voltage,
+            'fault' =>$faker->randomElement($fault),
+            'status' => ucfirst($faker->randomElement($status))
+        ];
+});
+
+
