@@ -29,6 +29,9 @@ Route::get('/admin',function(){
 
     return view('technician.admin');
 });
+Route::get('customers',function(){
+   return view('technician.customers');
+});
 
 
 

@@ -58,5 +58,12 @@ class DeviceController extends Controller
        return view('');
    }
 
+   public function getAllDevices(){
+       $electronics = electronics::all();
+
+       return view('technician.customers',compact('electronics'));
+
+   }
+
 
 }
