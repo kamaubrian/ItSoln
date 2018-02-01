@@ -65,5 +65,12 @@ class DeviceController extends Controller
 
    }
 
+   public function getDevice($serial) {
+       $electronics = electronics::where('serial',$serial)->firstOrFail();
+
+
+       return view('technician.device_info',compact('electronics'));
+   }
+
 
 }

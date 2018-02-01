@@ -32,6 +32,11 @@ Route::get('/admin',function(){
 Route::get('customers',function(){
    return view('technician.customers');
 });
+Route::get('/all_customers','AdminController@getAllDevices');
+
+
+Route::get('/device_info/{serial}','DeviceController@getDevice');
+
 
 
 
