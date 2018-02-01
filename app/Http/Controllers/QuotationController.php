@@ -35,6 +35,7 @@ class QuotationController extends Controller
             'priority' =>$request->input('priority')
         ]);
         $transaction->save();
+        $invoice = fopen('invoice.txt','w') or die('Unable to Open File');
 
 
         return redirect()->back()->with('status','Transaction Completed Successfully, Kindly Collect Invoice');
