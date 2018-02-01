@@ -36,6 +36,7 @@ Route::get('/all_customers','AdminController@getAllDevices');
 
 
 Route::get('/device_info/{serial}','DeviceController@getDevice');
+Route::post('/add_transaction','QuotationController@saveTransaction');
 
 
 

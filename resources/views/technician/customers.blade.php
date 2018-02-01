@@ -291,7 +291,7 @@
 
                                 <tr>
                                     <td>{{$value->user_id}}</td>
-                                    <td>{{$value->machine_type}}t</td>
+                                    <td>{{$value->machine_type}}</td>
                                     <td><a href="{{url('/device_info/'.$value->serial)}}">{{$value->serial}}</a></td>
                                     <td>{{$value->fault}}</td>
                                 </tr>

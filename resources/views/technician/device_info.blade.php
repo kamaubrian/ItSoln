@@ -5,19 +5,19 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    #{{$electronics->serial }} - {{$electronics->model}}
+                    #{{$electronics->serial }} - {{$electronics->model}}   <br> Fault:  {{$electronics->fault}}
                 </div>
 
                 <div class="panel-body">
                     @include('includes.flash')
-                    <form class="form-horizontal" role="form" method="post" action="{{url('/')}}">
+                    <form class="form-horizontal" role="form" method="post" action="{{url('/add_transaction')}}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('model') ? ' has-error' : '' }}">
                             <label for="model" class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
-                                <input id="model" type="text" class="form-control" name="model" value="{{ $electronics->model }}" required>
+                                <input id="title" type="text" class="form-control" name="title" value="{{ $electronics->model }}" required>
 
                                 @if ($errors->has('model'))
                                     <span class="help-block">
@@ -104,6 +104,7 @@
                                 </center>
                             </div>
                         </div>
+
 
 
 
